@@ -6,7 +6,7 @@ const getImages = (apiURL) => {
     fetch(apiURL, {
         headers: { Authorization: apiKey }
     }).then(res => res.json()).then(data => {
-        generateHTML(data.photos);
+        console.log(data);
     })
 }
 
