@@ -118,6 +118,10 @@ input, button, i {
     padding: 12px 27px;
     background: #8d6cff;
 }
+.gallery .images.disabled {
+    opacity: 0.6;
+    pointer-events: none;
+}
 .lightbox {
     position: fixed;
     z-index: 5;
