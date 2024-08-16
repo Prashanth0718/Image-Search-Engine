@@ -68,9 +68,44 @@ input, button, i {
     columns: 5 340px;
 }
 .images .card {
+    display: flex;
+    overflow: hidden;
+    position: relative;
     list-style: none;
     margin-bottom: 14px;
     border-radius: 4px;
+}
+.images .card .details {
+    position: absolute;
+    bottom: -100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    transition: bottom 0.1s ease;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+}
+.images .card:hover .details {
+    bottom: 0;
+}
+.card .details .photographer {
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+.details .photographer {
+    font-size: 1.4rem;
+    margin-right: 10px;
+}
+.details .photographer span {
+    font-size: 1.05rem;
+}
+.card .details button {
+    cursor: pointer;
+    padding: 3px 8px;
+    font-size: 1.1rem;
+    background: #fff;
 }
 .images img {
     width: 100%;
