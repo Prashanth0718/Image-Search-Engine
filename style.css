@@ -89,12 +89,12 @@ input, button, i {
 .images .card:hover .details {
     bottom: 0;
 }
-.card .details .photographer {
+.photographer {
     color: #fff;
     display: flex;
     align-items: center;
 }
-.details .photographer {
+.photographer {
     font-size: 1.4rem;
     margin-right: 10px;
 }
@@ -117,4 +117,66 @@ input, button, i {
     font-size: 1.2rem;
     padding: 12px 27px;
     background: #8d6cff;
+}
+.lightbox {
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background: rgba(0,0,0,0.65);
+}
+.lightbox .wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    padding: 20px;
+    max-width: 850px;
+    background: #fff;
+    border-radius: 5px;
+    transform: translate(-50%, -50%);
+}
+.wrapper header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header .photographer {
+    color: #333;
+}
+header .photographer i {
+    font-size: 1.7rem;
+}
+header .photographer span {
+    font-size: 1.7rem;
+}
+header .buttons i {
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    line-height: 40px;
+    background: #8d6cff;
+    font-size: 1.2rem;
+    display: inline-block;
+}
+.buttons i:last-child {
+    margin-left: 10px;
+    background: #6c757d;
+}
+.preview-img {
+    display: flex;
+    margin-top: 25px;
+    justify-content: center;
+}
+.wrapper .preview-img .img {
+    max-height: 65vh;
+    max-width: 90vh;
+}
+.preview-img .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
