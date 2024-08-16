@@ -44,12 +44,42 @@
     color: #8d8d8d;
     transform: translateY(-50%);
 }
+input, button, i {
+    outline: none;
+    border:  none;
+    border-radius: 5px;
+    
+}
 .search-box input {
     width: 100%;
     height: 100%;
-    outline: none;
-    border:  none;
     font-size: 1.1rem;
     padding-left: 55px;
-    border-radius: 5px;
+}
+.gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.gallery .images {
+    gap: 15px;
+    max-width: 95%;
+    margin-top: 40px;
+    columns: 5 340px;
+}
+.images .card {
+    list-style: none;
+    margin-bottom: 14px;
+    border-radius: 4px;
+}
+.images img {
+    width: 100%;
+}
+.gallery .load-more {
+    margin: 50px 0;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 12px 27px;
+    background: #8d6cff;
 }
