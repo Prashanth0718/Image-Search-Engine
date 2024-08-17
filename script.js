@@ -8,6 +8,17 @@ const perPage = 15 //we will load 15 images on every API call
 let currentPage = 1;
 let searchTerm = null;
 
+const downloadImg = (imgURL) => {
+    //res.blob() is a method that extracts the body of the response as a Blob (Binary Large Object). A Blob represents binary data, which in this case is the image file
+    fetch(imgURL).then(res => res.blob()).then(file => { 
+        // Converting received img to blob, creating its download link, and downloading it
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(file); //Creates a temporary URL for the Blob object using URL.createObjectURL(file)
+        a.download = new Date().getTime(); // Passing current time in milliseconds as <a> download value
+        a.click();
+    }).catch(() => alert("Failed to download image!"));
+}
+
 const generateHTML = (images) => {
     //Making li of all fetched images and adding them to the exiting image wrapper
     imagesWrapper.innerHTML += images.map(img => 
@@ -18,7 +29,9 @@ const generateHTML = (images) => {
                         <i class="uil uil-camera"></i>
                         <span>${img.photographer}</span>
                     </div>
-                    <button><i class="uil uil-import"></i></button>
+                    <button onclick="downloadImg('${img.src.large2x}')">
+                        <i class="uil uil-import"></i>
+                    </button>
                 </div>
             </li>`
     ).join("");
@@ -34,7 +47,7 @@ const getImages = (apiURL) => {
         generateHTML(data.photos);
         loadMoreBtn.innerText = "Load More";
         loadMoreBtn.classList.remove("disabled");
-    })
+    }).catch(()=> alert("Failed to load images!"));
 }
 
 const loadMoreImages = () => {
