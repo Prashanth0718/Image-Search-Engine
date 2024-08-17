@@ -7,7 +7,7 @@ const downloadImgBtn = document.querySelector(".uil-import");
 
 //API key, paginations, searchTerm variables
 const apiKey = "R99gFkpqFYrrct89nximMKplrJ0ElrmlVtPBrveqTiJx8SkGLs5GsoMp";
-const perPage = 15 //we will load 15 images on every API call
+const perPage = 50 //we will load 15 images on every API call
 let currentPage = 1;
 let searchTerm = null;
 
