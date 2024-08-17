@@ -43,6 +43,16 @@ const loadMoreImages = () => {
     getImages(apiURL);
 }
 
+const loadSearchImages = (e) => {
+    //If pressed key is Enter, update the current page, search term & call getImages
+    if(e.key === 'Enter') {
+        currentPage = 1;
+        searchTerm = e.target.value;
+        imagesWrapper.innerHTML = "";
+        getImages(`https://api.pexels.com/v1/search?query=${searchTerm}&page=${currentPage}&per_page=${perPage}`)
+    }
+}
+
 getImages(`https://api.pexels.com/v1/curated?page=${currentPage}&per_page=${perPage}`);
 
 loadMoreBtn.addEventListener("click", loadMoreImages);
