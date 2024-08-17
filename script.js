@@ -46,7 +46,8 @@ const loadMoreImages = () => {
 }
 
 const loadSearchImages = (e) => {
-    
+    //if the search input is empty, set the searchTerm to null and return from here
+    if(e.target.value === "") return searchTerm = null ;
     //If pressed key is Enter, update the current page, search term & call getImages
     if(e.key === 'Enter') {
         currentPage = 1;
