@@ -43,7 +43,7 @@ const hideLightbox = () => {
 const generateHTML = (images) => {
     //Making li of all fetched images and adding them to the exiting image wrapper
     imagesWrapper.innerHTML += images.map(img => 
-        //stopPropagation prevents propagation of same event from being called
+        //problem occured, when I try download image, it shows lightbox to fix we are using stopPropagation, it prevents propagation of same event from being called
         ` <li class="card" onclick="showLightbox('${img.photographer}', '${img.src.large2x}')">
                 <img src="${img.src.large2x}" alt="img">
                 <div class="details">
