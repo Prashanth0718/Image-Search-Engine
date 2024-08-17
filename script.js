@@ -2,6 +2,7 @@ const imagesWrapper = document.querySelector(".images");
 const loadMoreBtn = document.querySelector(".load-more");
 const searchInput = document.querySelector(".search-box input");
 const lightBox = document.querySelector(".lightbox");
+const closeBtn = document.querySelector(".uil-times");
 
 //API key, paginations, searchTerm variables
 const apiKey = "R99gFkpqFYrrct89nximMKplrJ0ElrmlVtPBrveqTiJx8SkGLs5GsoMp";
@@ -25,6 +26,10 @@ const showLightbox = (name, img) => {
     lightBox.querySelector("img").src = img;
     lightBox.querySelector("span").innerText = name;
     lightBox.classList.add("show")
+}
+
+const hideLightbox = () => {
+    lightBox.classList.remove("show")
 }
 
 const generateHTML = (images) => {
@@ -82,3 +87,4 @@ getImages(`https://api.pexels.com/v1/curated?page=${currentPage}&per_page=${perP
 
 loadMoreBtn.addEventListener("click", loadMoreImages);
 searchInput.addEventListener("keyup", loadSearchImages);
+closeBtn.addEventListener("click", hideLightbox);
