@@ -1,6 +1,7 @@
 const imagesWrapper = document.querySelector(".images");
 const loadMoreBtn = document.querySelector(".load-more");
 const searchInput = document.querySelector(".search-box input");
+const lightBox = document.querySelector(".lightbox");
 
 //API key, paginations, searchTerm variables
 const apiKey = "R99gFkpqFYrrct89nximMKplrJ0ElrmlVtPBrveqTiJx8SkGLs5GsoMp";
@@ -19,10 +20,17 @@ const downloadImg = (imgURL) => {
     }).catch(() => alert("Failed to download image!"));
 }
 
+const showLightbox = (name, img) => {
+    //showing lightbox and setting img source, name
+    lightBox.querySelector("img").src = img;
+    lightBox.querySelector("span").innerText = name;
+    lightBox.classList.add("show")
+}
+
 const generateHTML = (images) => {
     //Making li of all fetched images and adding them to the exiting image wrapper
     imagesWrapper.innerHTML += images.map(img => 
-        ` <li class="card">
+        ` <li class="card" onclick="showLightbox('${img.photographer}', '${img.src.large2x}')">
                 <img src="${img.src.large2x}" alt="img">
                 <div class="details">
                     <div class="photographer">
