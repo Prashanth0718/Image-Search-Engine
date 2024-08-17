@@ -21,7 +21,6 @@ const downloadImg = (imgURL) => {
         a.click();
     }).catch(() => alert("Failed to download image!"));
 }
-//downloading the image on download button click
 
 const showLightbox = (name, img) => {
     //showing lightbox and setting img source, name
@@ -44,6 +43,7 @@ const hideLightbox = () => {
 const generateHTML = (images) => {
     //Making li of all fetched images and adding them to the exiting image wrapper
     imagesWrapper.innerHTML += images.map(img => 
+        //stopPropagation prevents propagation of same event from being called
         ` <li class="card" onclick="showLightbox('${img.photographer}', '${img.src.large2x}')">
                 <img src="${img.src.large2x}" alt="img">
                 <div class="details">
@@ -51,7 +51,7 @@ const generateHTML = (images) => {
                         <i class="uil uil-camera"></i>
                         <span>${img.photographer}</span>
                     </div>
-                    <button onclick="downloadImg('${img.src.large2x}')">
+                    <button onclick="downloadImg('${img.src.large2x}');event.stopPropagation();">
                         <i class="uil uil-import"></i>
                     </button>
                 </div>
@@ -97,4 +97,6 @@ getImages(`https://api.pexels.com/v1/curated?page=${currentPage}&per_page=${perP
 loadMoreBtn.addEventListener("click", loadMoreImages);
 searchInput.addEventListener("keyup", loadSearchImages);
 closeBtn.addEventListener("click", hideLightbox);
+//downloading the image on download button click
+
 downloadImgBtn.addEventListener("click", (e) => downloadImg(e.target.dataset.img));//passing button image attribute to downloadImg function
