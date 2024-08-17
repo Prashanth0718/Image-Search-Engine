@@ -3,6 +3,7 @@ const loadMoreBtn = document.querySelector(".load-more");
 const searchInput = document.querySelector(".search-box input");
 const lightBox = document.querySelector(".lightbox");
 const closeBtn = document.querySelector(".uil-times");
+const downloadImgBtn = document.querySelector(".uil-import");
 
 //API key, paginations, searchTerm variables
 const apiKey = "R99gFkpqFYrrct89nximMKplrJ0ElrmlVtPBrveqTiJx8SkGLs5GsoMp";
@@ -20,11 +21,13 @@ const downloadImg = (imgURL) => {
         a.click();
     }).catch(() => alert("Failed to download image!"));
 }
+//downloading the image on download button click
 
 const showLightbox = (name, img) => {
     //showing lightbox and setting img source, name
     lightBox.querySelector("img").src = img;
     lightBox.querySelector("span").innerText = name;
+    downloadImgBtn.setAttribute("data-img", img);//Storing the image url as a btn attribute, so we can download it later
     lightBox.classList.add("show")
     //hiding the scrollbar when lightbox is shown
     document.body.style.overflow = "hidden";
@@ -94,3 +97,4 @@ getImages(`https://api.pexels.com/v1/curated?page=${currentPage}&per_page=${perP
 loadMoreBtn.addEventListener("click", loadMoreImages);
 searchInput.addEventListener("keyup", loadSearchImages);
 closeBtn.addEventListener("click", hideLightbox);
+downloadImgBtn.addEventListener("click", (e) => downloadImg(e.target.dataset.img));//passing button image attribute to downloadImg function
