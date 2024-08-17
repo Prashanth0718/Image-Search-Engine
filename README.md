@@ -51,7 +51,7 @@ To run this project locally, follow these steps:
 
 ## Screenshots
 
-![Screenshot](https://prashanth-s-n-image-search-engine.netlify.app/screenshot.png) <!-- Update with actual screenshot URL if available -->
+![Screenshot](images/OutputScreenshot.png) <!-- Update with actual screenshot URL if available -->
 
 ## Known Issues
 
