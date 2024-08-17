@@ -26,11 +26,17 @@ const showLightbox = (name, img) => {
     lightBox.querySelector("img").src = img;
     lightBox.querySelector("span").innerText = name;
     lightBox.classList.add("show")
+    //hiding the scrollbar when lightbox is shown
+    document.body.style.overflow = "hidden";
 }
 
-const hideLightbox = () => {
+const hideLightbox = () => { 
+    //hiding the lightbox on close button
     lightBox.classList.remove("show")
+    //showing the scrollbar when lightbox is shown
+    document.body.style.overflow = "auto";
 }
+
 
 const generateHTML = (images) => {
     //Making li of all fetched images and adding them to the exiting image wrapper
